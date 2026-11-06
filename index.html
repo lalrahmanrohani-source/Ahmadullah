@@ -743,13 +743,11 @@ body.focus-page #app > .page:not(.hidden) { visibility:visible!important; }
 }
 </style>
 
-<meta name="theme-color" content="#174b37">
+<meta name="theme-color" content="#081624">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<link rel="manifest" href="manifest.json">
-<link rel="icon" type="image/png" href="icon-192.png">
-
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="./icon-192.png">
 </head>
 <body>
 <div aria-label="د احمدالله خیاطۍ سیستم پرانیستل" id="intro">
@@ -1113,18 +1111,6 @@ body.dashboard-home #app > footer.footer-creator {
 }
 @media(max-height:650px){body.dashboard-home #app > footer.footer-creator{margin-bottom:42px !important}}
 </style>
-
-<script>
-// Offline support: the app shell is cached after the first successful online visit.
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register('./sw.js').catch(function (err) {
-      console.warn('Offline setup could not be registered:', err);
-    });
-  });
-}
-</script>
-
 </body></html>`);w.document.close();
 }
 function exportCompletedPdf(){
@@ -2397,4 +2383,15 @@ body.dashboard-home #app > footer.footer-creator {
 }
 @media(max-height:650px){body.dashboard-home #app > footer.footer-creator{margin-bottom:42px !important}}
 </style>
+
+<script>
+// Register offline cache after the main application script has finished.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./sw.js').catch(function (err) {
+      console.warn('Offline setup could not be registered:', err);
+    });
+  });
+}
+</script>
 </body></html>
